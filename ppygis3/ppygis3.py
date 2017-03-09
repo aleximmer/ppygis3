@@ -26,7 +26,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."""
 import binascii
-from io import StringIO
+from io import BytesIO
 import struct
 
 import psycopg2.extensions
@@ -81,7 +81,7 @@ class _EWKBReader(object):
 
 class _EWKBWriter(object):
     def __init__(self, geometry, stream=None):
-        self.stream = stream or StringIO()
+        self.stream = stream or BytesIO()
         if isinstance(geometry, Point):
             type = 1
         elif isinstance(geometry, LineString):
@@ -100,7 +100,7 @@ class _EWKBWriter(object):
             raise Exception('unsupported geometry class <{0}>'
                             .format(geometry.__class__.__name__))
 
-        self.stream.write('\x01')
+        self.stream.write(b'\x01')
         self.write_int(
             type |
             (0x80000000 if geometry.has_z else 0) |
@@ -134,7 +134,7 @@ class Geometry(object):
 
     @staticmethod
     def read_ewkb(value, cursor=None):
-        return _EWKBReader(StringIO(binascii.a2b_hex(value)))\
+        return _EWKBReader(BytesIO(binascii.a2b_hex(value)))\
             .read_geometry() if value else None
 
     @staticmethod
@@ -151,7 +151,7 @@ class Geometry(object):
         return binascii.b2a_hex(writer.stream.getvalue())
 
     def getquoted(self):
-        return '\'' + self.write_ewkb() + '\''
+        return b'\'' + self.write_ewkb() + b'\''
 
     def _write_ewkb(self, writer):
         self._write_ewkb_body(writer.child_writer(self))
