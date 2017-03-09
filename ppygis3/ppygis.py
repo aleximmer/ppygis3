@@ -26,7 +26,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."""
 import binascii
-import cStringIO
+from io import StringIO
 import struct
 
 import psycopg2.extensions
@@ -81,7 +81,7 @@ class _EWKBReader(object):
 
 class _EWKBWriter(object):
     def __init__(self, geometry, stream=None):
-        self.stream = stream or cStringIO.StringIO()
+        self.stream = stream or StringIO()
         if isinstance(geometry, Point):
             type = 1
         elif isinstance(geometry, LineString):
@@ -134,7 +134,7 @@ class Geometry(object):
 
     @staticmethod
     def read_ewkb(value, cursor=None):
-        return _EWKBReader(cStringIO.StringIO(binascii.a2b_hex(value)))\
+        return _EWKBReader(StringIO(binascii.a2b_hex(value)))\
             .read_geometry() if value else None
 
     @staticmethod
