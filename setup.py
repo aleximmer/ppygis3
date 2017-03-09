@@ -36,7 +36,7 @@ setup(
     author='Alexander Immer', # original author: Bartosz Fabianowski
     author_email='alexndr.immer@gmail.com', # original author: bartosz@fabianowski.eu
     url='https://github.com/AlexImmer/ppygis3',
-    download_url='https://github.com/AlexImmer/ppygis3/archive/' + current_version + '.tar.gz',
+    download_url='https://github.com/AlexImmer/ppygis3/archive/v' + current_version + '.tar.gz',
     keywords=['postgreSQL', 'postgis', 'EWKB', 'geometry', 'psycopg'],
     classifiers=[]
 )
