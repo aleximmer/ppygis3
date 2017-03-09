@@ -1,0 +1,33 @@
+Metadata-Version: 1.0
+Name: PPyGIS
+Version: 0.2
+Summary: PostGIS adapter for Psycopg
+Home-page: http://www.fabianowski.eu/projects/ppygis/
+Author: Bartosz Fabianowski
+Author-email: bartosz@fabianowski.eu
+License: UNKNOWN
+Download-URL: http://www.fabianowski.eu/projects/ppygis/releases/PPyGIS-0.2.tar.gz
+Description: 'PPyGIS is an extension to Psycopg_, a PostgreSQL_ database adapter for the
+        Python_ programming language. PPyGIS adds support for the geometry object
+        types used by PostGIS_.
+        
+        PPyGIS has been tested with Python 2.7. It may work with earlier versions as
+        well. A Python 3 version does not currently exist.
+        
+        .. _Psycopg: http://initd.org/psycopg/
+        .. _PostgreSQL: http://www.postgresql.org/
+        .. _Python: http://www.python.org/
+        .. _PostGIS: http://postgis.refractions.net/'
+        
+Keywords: psycopg,postgis,geometry,EWKB
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Topic :: Database :: Front-Ends
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
