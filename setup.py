@@ -31,6 +31,7 @@ current_version = '0.1'
 
 setup(
     name='ppygis3',
+    packages=['ppygis3'],
     version=current_version,
     description='PostGIS geometry objects synchronized in Python',
     author='Alexander Immer', # original author: Bartosz Fabianowski
