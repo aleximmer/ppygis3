@@ -42,9 +42,9 @@ class _EWKBReader(object):
 
     def read_geometry(self):
         byte_order = self.stream.read(1)
-        if byte_order == '\x00':
+        if byte_order == b'\x00':
             self._endianness = '>'
-        elif byte_order == '\x01':
+        elif byte_order == b'\x01':
             self._endianness = '<'
         else:
             raise Exception('invalid EWKB encoding')
