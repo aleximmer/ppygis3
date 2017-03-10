@@ -88,6 +88,6 @@ for line in buffer:
     print(Geometry.read_ewkb(line.strip()))
 
 # Disconnect from the database
-    cursor.close()
-    connection.close()
+cursor.close()
+connection.close()
 ```
