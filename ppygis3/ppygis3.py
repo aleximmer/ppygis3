@@ -160,7 +160,7 @@ class Geometry(object):
         return ', SRID: {0}'.format(self.srid) if self.has_srid else ''
 
 
-GEOMETRY = psycopg2.extensions.new_type((218754,), "GEOMETRY", Geometry.read_ewkb)
+GEOMETRY = psycopg2.extensions.new_type((991310,), "GEOMETRY", Geometry.read_ewkb)
 psycopg2.extensions.register_type(GEOMETRY)
 
 
